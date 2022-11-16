@@ -3,11 +3,16 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import MovieScreen from "./components/MovieScreen";
+import Watchlist from "./components/Watchlist";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [watchList, setWatchList] = useState([]);
   const [page, setPage] = useState(1);
+
+  const addMovie = (movie) => {
+    setWatchList([...watchList, movie]);
+  };
 
   const getData = () => {
     axios
@@ -33,7 +38,9 @@ function App() {
           page={page}
           setPage={setPage}
           watchList={watchList}
+          addMovie={addMovie}
         />
+        <Watchlist watchList={watchList} />
       </main>
     </div>
   );
