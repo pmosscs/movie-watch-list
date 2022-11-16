@@ -1,8 +1,9 @@
 import React from "react";
+import MovieCard from "./MovieCard";
 
 function MovieScreen({ watchList, movieList, setPage, page}) {
 
-    const movieDisplay = movieList.map((movie, index) => <h2>{movie.original_title}</h2>)
+    const movieDisplay = movieList.map((movie, index) => <MovieCard movie={movie} />)
     return (
         <div className="page">
             <h1>Peyton's Movie Theater</h1>
