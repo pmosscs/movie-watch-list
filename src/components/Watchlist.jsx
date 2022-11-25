@@ -2,8 +2,8 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 
-function Watchlist (props) {
-    const movieDisplay = props.watchList.map((movie) => <MovieCard movie={movie} />);
+function Watchlist ({ watchList, removeMovie }) {
+    const movieDisplay = watchList.map((movie) => <MovieCard watchList={watchList} removeMovie={removeMovie} movie={movie} />);
 
     return (
         <div className="watchlist">

@@ -14,6 +14,13 @@ function App() {
     setWatchList([...watchList, movie]);
   };
 
+  const removeMovie = (movie) => {
+    const newState = watchList.filter((mov) => {
+      return mov !== movie;
+    });
+    setWatchList(newState);
+  };
+
   const getData = () => {
     axios
       .get(
@@ -39,8 +46,9 @@ function App() {
           setPage={setPage}
           watchList={watchList}
           addMovie={addMovie}
+          removeMovie={removeMovie}
         />
-        <Watchlist watchList={watchList} />
+        <Watchlist watchList={watchList} removeMovie={removeMovie} />
       </main>
     </div>
   );
